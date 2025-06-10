@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -9,11 +9,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'First Flutter',
+    return MaterialApp(
+      title: 'The Me Card',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Center(
-          child: Text('Hello Flutter!', textDirection: TextDirection.ltr),
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: const Text(
+            'The Me Card',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
     );
