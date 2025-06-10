@@ -80,6 +80,19 @@ class MyApp extends StatelessWidget {
                         ),
                       ],
                     ),
+
+                    SizedBox(height: 10),
+
+                    Row(
+                      children: [
+                        Icon(Icons.web, color: Colors.grey),
+                        SizedBox(width: 8),
+                        Text(
+                          'Web: https://codesquare.dev/',
+                          style: TextStyle(fontSize: 18, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
