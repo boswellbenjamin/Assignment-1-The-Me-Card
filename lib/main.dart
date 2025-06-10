@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.blue,
           title: const Text(
-            'The Me Card',
+            'Personal Card',
             style: TextStyle(color: Colors.white),
           ),
         ),
@@ -43,6 +43,16 @@ class MyApp extends StatelessWidget {
                 style: TextStyle(fontSize: 18, color: Colors.black),
               ),
               const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.email, color: Colors.grey),
+                  const Text(
+                    '  E-mail: bb222ny@student.lnu.se',
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
