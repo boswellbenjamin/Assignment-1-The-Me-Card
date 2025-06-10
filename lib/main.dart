@@ -13,93 +13,129 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'The Me Card',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue.shade700),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.blue.shade50,
         appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: const Text(
+          backgroundColor: Colors.blue.shade700,
+          elevation: 0,
+          title: Text(
             'Personal Card',
-            style: TextStyle(color: Colors.white),
+            style: GoogleFonts.montserrat(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
           ),
+          centerTitle: true,
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const CircleAvatar(
-                radius: 120,
-                backgroundImage: AssetImage('assets/images/profile.jpg'),
-              ),
-              const SizedBox(height: 20),
-              Text(
-                'Benjamin Boswell',
-                style: GoogleFonts.justAnotherHand(
-                  fontSize: 42,
-                  fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        spreadRadius: 2,
+                        blurRadius: 7,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: const CircleAvatar(
+                    radius: 100,
+                    backgroundImage: AssetImage('assets/images/profile.jpg'),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 10),
+                const SizedBox(height: 25),
 
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: const Color.fromARGB(255, 129, 198, 255),
+                // Name with custom font
+                Text(
+                  'Benjamin Boswell',
+                  style: GoogleFonts.justAnotherHand(
+                    fontSize: 46,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
                 ),
 
-                margin: const EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 20,
+                const SizedBox(height: 5),
+                Text(
+                  'Fullstack Developer',
+                  style: GoogleFonts.montserrat(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue.shade700,
+                    letterSpacing: 1.2,
+                  ),
                 ),
 
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  children: [
-                    Row(
-                      children: const [
-                        Icon(Icons.email, color: Colors.grey),
-                        SizedBox(width: 8),
-                        Text(
-                          'E-mail: bb222ny@student.lnu.se',
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                        ),
-                      ],
-                    ),
+                const SizedBox(height: 30),
 
-                    SizedBox(height: 10),
-
-                    Row(
-                      children: [
-                        Icon(Icons.local_phone, color: Colors.grey),
-                        SizedBox(width: 8),
-                        Text(
-                          'Phone: +46 76 343 59 60',
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(height: 10),
-
-                    Row(
-                      children: [
-                        Icon(Icons.web, color: Colors.grey),
-                        SizedBox(width: 8),
-                        Text(
-                          'Web: https://codesquare.dev/',
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  ],
+                // Contact info card
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                    horizontal: 25,
+                  ),
+                  child: Column(
+                    children: [
+                      _buildContactRow(
+                        Icons.email_outlined,
+                        'E-mail: bb222ny@student.lnu.se',
+                      ),
+                      const Divider(height: 25, thickness: 1),
+                      _buildContactRow(
+                        Icons.phone_outlined,
+                        'Phone: +46 76 343 59 60',
+                      ),
+                      const Divider(height: 25, thickness: 1),
+                      _buildContactRow(
+                        Icons.language_outlined,
+                        'Web: https://codesquare.dev/',
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildContactRow(IconData icon, String text) {
+    return Row(
+      children: [
+        Icon(icon, color: Colors.blue.shade700, size: 24),
+        const SizedBox(width: 15),
+        Expanded(
+          child: Text(
+            text,
+            style: GoogleFonts.montserrat(fontSize: 16, color: Colors.black87),
+          ),
+        ),
+      ],
     );
   }
 }
