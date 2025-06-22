@@ -55,7 +55,6 @@ class MyApp extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
 
-                // Name with custom font
                 Text(
                   'Benjamin Boswell',
                   style: GoogleFonts.justAnotherHand(
@@ -66,6 +65,7 @@ class MyApp extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 5),
+
                 Text(
                   'Fullstack Developer Student',
                   style: GoogleFonts.montserrat(
@@ -78,7 +78,6 @@ class MyApp extends StatelessWidget {
 
                 const SizedBox(height: 30),
 
-                // Contact info card
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
