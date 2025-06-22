@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue.shade700),
         useMaterial3: true,
       ),
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.blue.shade50,
         appBar: AppBar(
@@ -68,7 +67,7 @@ class MyApp extends StatelessWidget {
 
                 const SizedBox(height: 5),
                 Text(
-                  'Fullstack Developer',
+                  'Fullstack Developer Student',
                   style: GoogleFonts.montserrat(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
